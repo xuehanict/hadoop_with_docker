@@ -1,0 +1,22 @@
+FROM xuehanict/hadoop_hbase
+
+RUN rm -rf /root/hdfs/namenode/*
+
+#SSH port
+EXPOSE 22
+# HDFS ports
+EXPOSE 9000 50010 50020 50070 50075 50090 50475
+
+# YARN ports
+EXPOSE 8030 8031 8032 8033 8040 8042 8060 8088 50060
+
+#hbase ports
+EXPOSE 60010 60000 60030 60020 8080
+
+#serf
+EXPOSE 7373 7946
+
+
+CMD /usr/sbin/sshd -D
+
+
